@@ -1,0 +1,67 @@
+[
+	{
+		"label": "Triggers",
+		"modules": [
+			"watchNewReplies",
+			"watchConnectionsAccepted",
+			"watchConnectionRequestsSent",
+			"watchEmailsSent",
+			"watchEmailOpens",
+			"watchEmailLinkClicks",
+			"watchEmailBounces",
+			"watchUnsubscribes",
+			"watchAppointments",
+			"watchCampaigns",
+			"watchRepliedLeads"
+		]
+	},
+	{
+		"label": "Leads",
+		"modules": [
+			"addLeadToCampaign",
+			"addLeadsToCampaign",
+			"updateLead",
+			"addNoteToLead",
+			"getLead",
+			"searchLeads"
+		]
+	},
+	{
+		"label": "Campaigns",
+		"modules": [
+			"createDraftCampaign",
+			"launchCampaign",
+			"pauseResumeCampaign",
+			"getCampaign",
+			"searchCampaigns",
+			"getCampaignStats",
+			"getCampaignFunnel"
+		]
+	},
+	{
+		"label": "Inbox",
+		"modules": [
+			"sendMessage",
+			"draftAiReply",
+			"updateConversation",
+			"searchConversations"
+		]
+	},
+	{
+		"label": "CRM and library",
+		"modules": [
+			"createUpdateTask",
+			"createReminder",
+			"searchAppointments",
+			"addBlacklistEntry",
+			"createTag"
+		]
+	},
+	{
+		"label": "Other",
+		"modules": [
+			"callTool",
+			"makeApiCall"
+		]
+	}
+]

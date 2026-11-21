@@ -1,0 +1,9 @@
+[
+	{
+		"name": "apiKey",
+		"type": "password",
+		"label": "API Key",
+		"required": true,
+		"help": "Find it in Linkedcamp under Settings → Integrations → API ([open](https://app.linkedcamp.com/settings/integrations?type=api)). It needs a plan with Pro features and the Integrations permission."
+	}
+]

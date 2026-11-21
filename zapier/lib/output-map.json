@@ -1,0 +1,34 @@
+{
+  "_comment": "Filled from spec/captures by scripts/bootstrap.mjs. listKey = property holding the array in a list tool's output (null = output is the array, or detect the single array property). idKey = id field of each item. Values marked provisional are not yet confirmed by a capture.",
+  "provisional": true,
+  "tools": {
+    "appointment_list": {
+      "listKey": null,
+      "idKey": null
+    },
+    "campaign_list": {
+      "listKey": null,
+      "idKey": null
+    },
+    "lead_list": {
+      "listKey": null,
+      "idKey": null
+    },
+    "conversation_list": {
+      "listKey": null,
+      "idKey": null
+    },
+    "linkedin_account_list": {
+      "listKey": null,
+      "idKey": null
+    },
+    "subaccount_list": {
+      "listKey": null,
+      "idKey": null
+    },
+    "tag_list": {
+      "listKey": null,
+      "idKey": null
+    }
+  }
+}

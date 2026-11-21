@@ -1,0 +1,37 @@
+[
+	{
+		"name": "title",
+		"type": "text",
+		"label": "Title",
+		"required": true
+	},
+	{
+		"name": "remindAt",
+		"type": "date",
+		"label": "Remind at",
+		"required": true
+	},
+	{
+		"name": "description",
+		"type": "text",
+		"label": "Description",
+		"multiline": true
+	},
+	{
+		"name": "leadId",
+		"type": "text",
+		"label": "Lead ID"
+	},
+	{
+		"name": "conversationId",
+		"type": "text",
+		"label": "Conversation ID"
+	},
+	{
+		"name": "linkedAccountId",
+		"type": "select",
+		"label": "LinkedIn account",
+		"options": "rpc://listLinkedInAccounts",
+		"mode": "edit"
+	}
+]

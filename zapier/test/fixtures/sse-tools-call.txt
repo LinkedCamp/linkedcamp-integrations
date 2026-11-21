@@ -1,0 +1,6 @@
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progress":1}}
+
+event: message
+data: {"jsonrpc":"2.0","id":2,"result":{"content":[{"type":"text","text":"{\"items\":[{\"_id\":\"a1\",\"x\":1},{\"_id\":\"a2\",\"x\":2}]}"}]}}
+

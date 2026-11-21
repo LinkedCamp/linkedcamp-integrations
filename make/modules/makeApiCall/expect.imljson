@@ -1,0 +1,90 @@
+[
+	{
+		"name": "url",
+		"type": "text",
+		"label": "URL",
+		"required": true,
+		"validate": {
+			"pattern": "^/[^/]"
+		},
+		"help": "A path relative to `https://api.linkedcamp.com`, starting with `/`. For example: `/webhooks`. API reference: https://docs.linkedcamp.com/introduction"
+	},
+	{
+		"name": "method",
+		"type": "select",
+		"label": "Method",
+		"options": [
+			{
+				"label": "GET",
+				"value": "GET"
+			},
+			{
+				"label": "POST",
+				"value": "POST"
+			},
+			{
+				"label": "PUT",
+				"value": "PUT"
+			},
+			{
+				"label": "PATCH",
+				"value": "PATCH"
+			},
+			{
+				"label": "DELETE",
+				"value": "DELETE"
+			}
+		],
+		"required": true,
+		"default": "GET"
+	},
+	{
+		"name": "headers",
+		"type": "array",
+		"label": "Headers",
+		"help": "You do not need to add the `token` header; it is added for you.",
+		"spec": [
+			{
+				"name": "key",
+				"type": "text",
+				"label": "Key",
+				"required": true
+			},
+			{
+				"name": "value",
+				"type": "text",
+				"label": "Value"
+			}
+		],
+		"default": [
+			{
+				"key": "Content-Type",
+				"value": "application/json"
+			}
+		]
+	},
+	{
+		"name": "qs",
+		"type": "array",
+		"label": "Query string",
+		"spec": [
+			{
+				"name": "key",
+				"type": "text",
+				"label": "Key",
+				"required": true
+			},
+			{
+				"name": "value",
+				"type": "text",
+				"label": "Value"
+			}
+		]
+	},
+	{
+		"name": "body",
+		"type": "any",
+		"label": "Body",
+		"help": "Request body, usually JSON text. Ignored for GET."
+	}
+]

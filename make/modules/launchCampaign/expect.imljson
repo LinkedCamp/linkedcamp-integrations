@@ -1,0 +1,18 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": true,
+		"mode": "edit",
+		"help": "A drafted campaign whose readiness check passes (see **Get a campaign**). Launching starts real outreach."
+	},
+	{
+		"name": "skipPreflight",
+		"type": "boolean",
+		"label": "Skip the readiness check",
+		"default": false,
+		"help": "Let the Linkedcamp backend decide instead of the local readiness check. Only useful if that check is wrong."
+	}
+]

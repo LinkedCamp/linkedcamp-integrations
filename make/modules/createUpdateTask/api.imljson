@@ -1,0 +1,27 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "task_upsert",
+			"arguments": {
+				"taskId": "{{parameters.taskId}}",
+				"title": "{{parameters.title}}",
+				"content": "{{parameters.content}}",
+				"leadId": "{{parameters.leadId}}",
+				"conversationId": "{{parameters.conversationId}}",
+				"link": "{{parameters.link}}",
+				"tag": "{{parameters.tag}}",
+				"date": "{{parameters.date}}",
+				"isCompleted": "{{parameters.isCompleted}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

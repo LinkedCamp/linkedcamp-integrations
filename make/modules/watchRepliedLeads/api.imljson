@@ -1,0 +1,49 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "lead_list",
+			"arguments": {
+				"status": "REPLIED",
+				"range": {
+					"from": "{{addDays(now, -1)}}"
+				},
+				"page": 1,
+				"pageSize": 100
+			}
+		}
+	},
+	"pagination": {
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/call",
+			"params": {
+				"name": "lead_list",
+				"arguments": {
+					"status": "REPLIED",
+					"range": {
+						"from": "{{addDays(now, -1)}}"
+					},
+					"page": "{{pagination.page}}",
+					"pageSize": 100
+				}
+			}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": "{{item}}",
+		"limit": "{{parameters.limit}}",
+		"trigger": {
+			"id": "{{recordId(item)}}",
+			"type": "id",
+			"order": "unordered"
+		}
+	}
+}

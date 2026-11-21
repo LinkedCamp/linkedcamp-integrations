@@ -1,0 +1,48 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "conversation_list",
+			"arguments": {
+				"campaignId": "{{parameters.campaignId}}",
+				"keyword": "{{parameters.keyword}}",
+				"platform": "{{parameters.platform}}",
+				"type": "{{parameters.type}}",
+				"tags": "{{parameters.tags}}",
+				"linkedAccountId": "{{parameters.linkedAccountId}}",
+				"emailAccountId": "{{parameters.emailAccountId}}",
+				"page": 1
+			}
+		}
+	},
+	"pagination": {
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/call",
+			"params": {
+				"name": "conversation_list",
+				"arguments": {
+					"campaignId": "{{parameters.campaignId}}",
+					"keyword": "{{parameters.keyword}}",
+					"platform": "{{parameters.platform}}",
+					"type": "{{parameters.type}}",
+					"tags": "{{parameters.tags}}",
+					"linkedAccountId": "{{parameters.linkedAccountId}}",
+					"emailAccountId": "{{parameters.emailAccountId}}",
+					"page": "{{pagination.page}}"
+				}
+			}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": "{{item}}",
+		"limit": "{{parameters.limit}}"
+	}
+}

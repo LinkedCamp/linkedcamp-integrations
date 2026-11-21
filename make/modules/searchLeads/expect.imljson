@@ -1,0 +1,152 @@
+[
+	{
+		"name": "keyword",
+		"type": "text",
+		"label": "Keyword",
+		"help": "Searches name, email or company."
+	},
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": false,
+		"mode": "edit",
+		"help": "Leave empty to search every campaign."
+	},
+	{
+		"name": "status",
+		"type": "select",
+		"label": "Status",
+		"options": [
+			{
+				"label": "Found",
+				"value": "FOUND"
+			},
+			{
+				"label": "Viewed",
+				"value": "VIEWED"
+			},
+			{
+				"label": "Connect sent",
+				"value": "CONNECT_SENT"
+			},
+			{
+				"label": "Connected",
+				"value": "CONNECTED"
+			},
+			{
+				"label": "Followup",
+				"value": "FOLLOWUP"
+			},
+			{
+				"label": "Message sent",
+				"value": "MESSAGE_SENT"
+			},
+			{
+				"label": "Inmails",
+				"value": "INMAILS"
+			},
+			{
+				"label": "Inmail sent",
+				"value": "INMAIL_SENT"
+			},
+			{
+				"label": "Replied",
+				"value": "REPLIED"
+			},
+			{
+				"label": "Withdrawn",
+				"value": "WITHDRAWN"
+			},
+			{
+				"label": "Inmail credit",
+				"value": "INMAIL_CREDIT"
+			},
+			{
+				"label": "Followed",
+				"value": "FOLLOWED"
+			},
+			{
+				"label": "Email sent",
+				"value": "EMAIL_SENT"
+			},
+			{
+				"label": "Opened",
+				"value": "OPENED"
+			},
+			{
+				"label": "Bounced",
+				"value": "BOUNCED"
+			},
+			{
+				"label": "Clicked",
+				"value": "CLICKED"
+			},
+			{
+				"label": "Unsubscribed",
+				"value": "UNSUBSCRIBED"
+			},
+			{
+				"label": "Failed",
+				"value": "FAILED"
+			},
+			{
+				"label": "Invited",
+				"value": "INVITED"
+			},
+			{
+				"label": "Completed",
+				"value": "COMPLETED"
+			},
+			{
+				"label": "Not qualified",
+				"value": "NOT_QUALIFIED"
+			},
+			{
+				"label": "Out of office",
+				"value": "OUT_OF_OFFICE"
+			}
+		]
+	},
+	{
+		"name": "tags",
+		"type": "array",
+		"label": "Tag IDs",
+		"spec": {
+			"type": "text",
+			"label": "Tag ID"
+		},
+		"help": "Leads must carry at least one of these tags."
+	},
+	{
+		"name": "range",
+		"type": "collection",
+		"label": "Date range",
+		"help": "Optional date window. Leave empty for the Linkedcamp default.",
+		"spec": [
+			{
+				"name": "from",
+				"type": "date",
+				"label": "From"
+			},
+			{
+				"name": "to",
+				"type": "date",
+				"label": "To"
+			}
+		]
+	},
+	{
+		"name": "limit",
+		"type": "uinteger",
+		"label": "Limit",
+		"required": false,
+		"default": 10,
+		"validate": {
+			"min": 1,
+			"max": 1000
+		},
+		"help": "Maximum number of bundles to return during one execution cycle."
+	}
+]

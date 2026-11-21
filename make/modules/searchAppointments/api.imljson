@@ -1,0 +1,40 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "appointment_list",
+			"arguments": {
+				"leadId": "{{parameters.leadId}}",
+				"conversationId": "{{parameters.conversationId}}",
+				"status": "{{parameters.status}}",
+				"page": 1
+			}
+		}
+	},
+	"pagination": {
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/call",
+			"params": {
+				"name": "appointment_list",
+				"arguments": {
+					"leadId": "{{parameters.leadId}}",
+					"conversationId": "{{parameters.conversationId}}",
+					"status": "{{parameters.status}}",
+					"page": "{{pagination.page}}"
+				}
+			}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": "{{item}}",
+		"limit": "{{parameters.limit}}"
+	}
+}

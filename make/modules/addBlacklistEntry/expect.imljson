@@ -1,0 +1,45 @@
+[
+	{
+		"name": "linkedAccountId",
+		"type": "select",
+		"label": "LinkedIn account",
+		"options": "rpc://listLinkedInAccounts",
+		"required": true,
+		"mode": "edit"
+	},
+	{
+		"name": "type",
+		"type": "select",
+		"label": "Type",
+		"options": [
+			{
+				"label": "Profile URL",
+				"value": "PROFILE_URL"
+			},
+			{
+				"label": "Company URL",
+				"value": "COMPANY_URL"
+			},
+			{
+				"label": "Keyword",
+				"value": "KEYWORD"
+			},
+			{
+				"label": "Job title",
+				"value": "JOB_TITLE"
+			},
+			{
+				"label": "Email",
+				"value": "EMAIL"
+			}
+		],
+		"required": true
+	},
+	{
+		"name": "keyword",
+		"type": "text",
+		"label": "Value",
+		"required": true,
+		"help": "A URL, an email, or a substring for **Keyword** and **Job title**. Keep keywords specific: they match as substrings."
+	}
+]

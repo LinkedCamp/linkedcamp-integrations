@@ -1,0 +1,29 @@
+[
+	{
+		"name": "content",
+		"type": "text",
+		"label": "Tag",
+		"required": true
+	},
+	{
+		"name": "interest",
+		"type": "select",
+		"label": "Interest",
+		"options": [
+			{
+				"label": "Positive",
+				"value": "POSITIVE"
+			},
+			{
+				"label": "Negative",
+				"value": "NEGATIVE"
+			},
+			{
+				"label": "Neutral",
+				"value": "NEUTRAL"
+			}
+		],
+		"required": true,
+		"help": "Which reply-sentiment bucket the tag feeds."
+	}
+]

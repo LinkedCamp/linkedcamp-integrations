@@ -1,0 +1,439 @@
+{
+	"app": {
+		"name": "linkedcamp",
+		"label": "Linkedcamp",
+		"description": "Linkedcamp is agentic LinkedIn and email outreach for lead generation agencies.",
+		"theme": "#2CC5F4",
+		"language": "en"
+	},
+	"connection": {
+		"name": "linkedcamp",
+		"label": "Linkedcamp",
+		"type": "basic"
+	},
+	"functions": [
+		"parseMcp",
+		"mcpResult",
+		"mcpError",
+		"mcpList",
+		"recordId",
+		"optionLabel",
+		"pickWebhookId"
+	],
+	"rpcs": [
+		{
+			"name": "listCampaigns",
+			"label": "List campaigns",
+			"tool": "campaign_list"
+		},
+		{
+			"name": "listLinkedInAccounts",
+			"label": "List LinkedIn accounts",
+			"tool": "linkedin_account_list"
+		},
+		{
+			"name": "listClients",
+			"label": "List clients (sub-accounts)",
+			"tool": "subaccount_list"
+		},
+		{
+			"name": "listTools",
+			"label": "List tools",
+			"tool": "tools/list"
+		}
+	],
+	"webhooks": [
+		{
+			"name": "hookReplyDetected",
+			"label": "Replies (REPLY_DETECTED)",
+			"event": "REPLY_DETECTED"
+		},
+		{
+			"name": "hookAcceptsRequest",
+			"label": "Connections accepted (ACCEPTS_REQUEST)",
+			"event": "ACCEPTS_REQUEST"
+		},
+		{
+			"name": "hookConnectInvited",
+			"label": "Connection requests sent (CONNECT_INVITED)",
+			"event": "CONNECT_INVITED"
+		},
+		{
+			"name": "hookEmailSent",
+			"label": "Emails sent (EMAIL_SENT)",
+			"event": "EMAIL_SENT"
+		},
+		{
+			"name": "hookOpened",
+			"label": "Email opens (OPENED)",
+			"event": "OPENED"
+		},
+		{
+			"name": "hookClicked",
+			"label": "Email link clicks (CLICKED)",
+			"event": "CLICKED"
+		},
+		{
+			"name": "hookBounced",
+			"label": "Email bounces (BOUNCED)",
+			"event": "BOUNCED"
+		},
+		{
+			"name": "hookUnsubscribed",
+			"label": "Unsubscribes (UNSUBSCRIBED)",
+			"event": "UNSUBSCRIBED"
+		}
+	],
+	"modules": [
+		{
+			"name": "watchNewReplies",
+			"label": "Watch new replies",
+			"description": "Triggers when a prospect replies in a Linkedcamp campaign.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "REPLY_DETECTED",
+			"webhook": "hookReplyDetected"
+		},
+		{
+			"name": "watchConnectionsAccepted",
+			"label": "Watch new connections accepted",
+			"description": "Triggers when a prospect accepts a connection request sent by a Linkedcamp campaign.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "ACCEPTS_REQUEST",
+			"webhook": "hookAcceptsRequest"
+		},
+		{
+			"name": "watchConnectionRequestsSent",
+			"label": "Watch new connection requests sent",
+			"description": "Triggers when a campaign sends a connection request.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "CONNECT_INVITED",
+			"webhook": "hookConnectInvited"
+		},
+		{
+			"name": "watchEmailsSent",
+			"label": "Watch new emails sent",
+			"description": "Triggers when a campaign email is sent.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "EMAIL_SENT",
+			"webhook": "hookEmailSent"
+		},
+		{
+			"name": "watchEmailOpens",
+			"label": "Watch new email opens",
+			"description": "Triggers when a campaign email is opened.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "OPENED",
+			"webhook": "hookOpened"
+		},
+		{
+			"name": "watchEmailLinkClicks",
+			"label": "Watch new email link clicks",
+			"description": "Triggers when a campaign email has a link clicked.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "CLICKED",
+			"webhook": "hookClicked"
+		},
+		{
+			"name": "watchEmailBounces",
+			"label": "Watch new email bounces",
+			"description": "Triggers when a campaign email bounces.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "BOUNCED",
+			"webhook": "hookBounced"
+		},
+		{
+			"name": "watchUnsubscribes",
+			"label": "Watch new unsubscribes",
+			"description": "Triggers when a prospect unsubscribes from campaign emails.",
+			"kind": "instant",
+			"typeId": 10,
+			"tool": null,
+			"event": "UNSUBSCRIBED",
+			"webhook": "hookUnsubscribed"
+		},
+		{
+			"name": "watchAppointments",
+			"label": "Watch new appointments",
+			"description": "Triggers when a meeting is booked from a Linkedcamp conversation.",
+			"kind": "trigger",
+			"typeId": 1,
+			"tool": "appointment_list",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "watchCampaigns",
+			"label": "Watch new campaigns",
+			"description": "Triggers when a new campaign is created.",
+			"kind": "trigger",
+			"typeId": 1,
+			"tool": "campaign_list",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "watchRepliedLeads",
+			"label": "Watch new replied leads",
+			"description": "Triggers when a lead reaches the Replied status. Checks leads that replied in the last 24 hours; each lead triggers once.",
+			"kind": "trigger",
+			"typeId": 1,
+			"tool": "lead_list",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "addLeadToCampaign",
+			"label": "Add a lead to a campaign",
+			"description": "Adds a prospect to a Linkedcamp campaign by LinkedIn profile URL or email.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "lead_add",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "addLeadsToCampaign",
+			"label": "Bulk add leads to a campaign (advanced)",
+			"description": "Adds up to 5,000 prospect rows to a Linkedcamp campaign in one request. The import runs in the background.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "campaign_upload_leads",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "updateLead",
+			"label": "Update a lead",
+			"description": "Updates a lead's details, personalization or custom fields, or pauses, excludes or marks it interested.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "lead_update",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "addNoteToLead",
+			"label": "Add a note to a lead",
+			"description": "Adds an internal note to a lead. Nothing is sent.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "lead_note_add",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "sendMessage",
+			"label": "Send a message",
+			"description": "Sends a message in an existing conversation. It is delivered immediately and cannot be recalled. Warning: this delivers to a real person on LinkedIn or by email as soon as the module runs.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "message_send",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "draftAiReply",
+			"label": "Draft an AI reply",
+			"description": "Drafts a reply with your connected AI provider. Nothing is sent.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "message_draft_ai_reply",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "updateConversation",
+			"label": "Update a conversation",
+			"description": "Archives a conversation, marks it read, or hands it between the AI agent and a human.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "conversation_update",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "pauseResumeCampaign",
+			"label": "Pause or resume a campaign",
+			"description": "Pauses a running campaign or resumes a paused one.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "campaign_set_status",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "launchCampaign",
+			"label": "Launch a campaign",
+			"description": "Launches a drafted campaign so it starts sending. Warning: this starts real outreach to real people from the connected LinkedIn account and mailboxes.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "campaign_launch",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "createDraftCampaign",
+			"label": "Create a draft campaign",
+			"description": "Creates a new draft campaign. Nothing is sent until the campaign is launched.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "campaign_create",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "addBlacklistEntry",
+			"label": "Add a blacklist entry",
+			"description": "Creates a new account-wide blacklist rule that excludes prospects by profile URL, company URL, keyword, job title or email.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "blacklist_add",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "createTag",
+			"label": "Create a tag",
+			"description": "Creates a new tag.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "tag_create",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "createUpdateTask",
+			"label": "Create or update a task",
+			"description": "Creates a new task, or updates an existing task by its ID. Nothing is sent to the prospect.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "task_upsert",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "createReminder",
+			"label": "Create a reminder",
+			"description": "Creates a new follow-up reminder for you on a lead or conversation. Nothing is sent to the prospect.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "reminder_create",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "callTool",
+			"label": "Call a Linkedcamp tool",
+			"description": "Calls any Linkedcamp MCP tool your API key can use, with JSON arguments. Some tools send messages or start outreach; check the tool before you run it.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "(any)",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "makeApiCall",
+			"label": "Make an API call",
+			"description": "Sends a custom API call to Linkedcamp. You can use this to call endpoints that aren't covered by existing modules.",
+			"kind": "universal",
+			"typeId": 12,
+			"tool": "REST",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "searchCampaigns",
+			"label": "Search campaigns",
+			"description": "Returns a list of campaigns filtered by title, status or client sub-account, newest first.",
+			"kind": "search",
+			"typeId": 9,
+			"tool": "campaign_list",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "getCampaign",
+			"label": "Get a campaign",
+			"description": "Returns information about a specific campaign by its ID, including settings, schedule, limits, accounts, lead source, counters and readiness.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "campaign_get",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "searchLeads",
+			"label": "Search leads",
+			"description": "Returns a list of leads filtered by name, email or company, campaign, status, tags or date range.",
+			"kind": "search",
+			"typeId": 9,
+			"tool": "lead_list",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "getLead",
+			"label": "Get a lead",
+			"description": "Returns information about a specific lead by its ID, with its activity history and position in the campaign.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "lead_get",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "getCampaignStats",
+			"label": "Get campaign stats",
+			"description": "Returns headline performance for a specific campaign by its ID, or for the whole account when no campaign is chosen.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "analytics_campaign",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "getCampaignFunnel",
+			"label": "Get a campaign funnel",
+			"description": "Returns stage-by-stage conversion for a specific campaign by its ID. It can be slow on campaigns with many leads.",
+			"kind": "action",
+			"typeId": 4,
+			"tool": "analytics_campaign_funnel",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "searchConversations",
+			"label": "Search conversations",
+			"description": "Returns a list of LinkedIn and email conversations filtered by campaign, keyword, channel, tags or account, newest activity first. It does not mark them as read.",
+			"kind": "search",
+			"typeId": 9,
+			"tool": "conversation_list",
+			"event": null,
+			"webhook": null
+		},
+		{
+			"name": "searchAppointments",
+			"label": "Search appointments",
+			"description": "Returns a list of meetings booked from conversations, filtered by lead, conversation or status.",
+			"kind": "search",
+			"typeId": 9,
+			"tool": "appointment_list",
+			"event": null,
+			"webhook": null
+		}
+	]
+}

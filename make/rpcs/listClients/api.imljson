@@ -1,0 +1,39 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "subaccount_list",
+			"arguments": {
+				"page": 1,
+				"pageSize": 200
+			}
+		}
+	},
+	"pagination": {
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/call",
+			"params": {
+				"name": "subaccount_list",
+				"arguments": {
+					"page": "{{pagination.page}}",
+					"pageSize": 200
+				}
+			}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": {
+			"label": "{{optionLabel(item, 'client')}}",
+			"value": "{{recordId(item)}}"
+		},
+		"limit": 500
+	}
+}

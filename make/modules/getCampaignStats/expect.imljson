@@ -1,0 +1,43 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": false,
+		"mode": "edit",
+		"help": "Leave empty for a roll-up across the whole account."
+	},
+	{
+		"name": "range",
+		"type": "collection",
+		"label": "Date range",
+		"help": "Optional date window. Leave empty for the Linkedcamp default.",
+		"spec": [
+			{
+				"name": "from",
+				"type": "date",
+				"label": "From"
+			},
+			{
+				"name": "to",
+				"type": "date",
+				"label": "To"
+			}
+		]
+	},
+	{
+		"name": "includeGraph",
+		"type": "boolean",
+		"label": "Include the day-by-day series",
+		"default": false
+	},
+	{
+		"name": "userId",
+		"type": "select",
+		"label": "Client (sub-account)",
+		"options": "rpc://listClients",
+		"mode": "edit",
+		"help": "Agency owners only: read a client sub-account instead of your own data. Leave empty for your own account. The list stays empty for keys that are not an agency owner."
+	}
+]

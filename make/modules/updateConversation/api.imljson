@@ -1,0 +1,23 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "conversation_update",
+			"arguments": {
+				"conversationId": "{{parameters.conversationId}}",
+				"isArchived": "{{parameters.isArchived}}",
+				"seen": "{{parameters.seen}}",
+				"assistant": "{{parameters.assistant}}",
+				"pauseBotOnManualMessage": "{{parameters.pauseBotOnManualMessage}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

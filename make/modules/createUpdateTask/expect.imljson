@@ -1,0 +1,51 @@
+[
+	{
+		"name": "title",
+		"type": "text",
+		"label": "Title",
+		"required": true
+	},
+	{
+		"name": "taskId",
+		"type": "text",
+		"label": "Task ID",
+		"help": "Leave empty to create a new task."
+	},
+	{
+		"name": "content",
+		"type": "text",
+		"label": "Details",
+		"multiline": true
+	},
+	{
+		"name": "leadId",
+		"type": "text",
+		"label": "Lead ID"
+	},
+	{
+		"name": "conversationId",
+		"type": "text",
+		"label": "Conversation ID"
+	},
+	{
+		"name": "link",
+		"type": "text",
+		"label": "Link"
+	},
+	{
+		"name": "tag",
+		"type": "text",
+		"label": "Label",
+		"help": "Free-text label for grouping."
+	},
+	{
+		"name": "date",
+		"type": "date",
+		"label": "Due date"
+	},
+	{
+		"name": "isCompleted",
+		"type": "boolean",
+		"label": "Completed"
+	}
+]

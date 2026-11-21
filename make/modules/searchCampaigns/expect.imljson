@@ -1,0 +1,62 @@
+[
+	{
+		"name": "keyword",
+		"type": "text",
+		"label": "Title contains"
+	},
+	{
+		"name": "status",
+		"type": "select",
+		"label": "Status",
+		"options": [
+			{
+				"label": "Active",
+				"value": "ACTIVE"
+			},
+			{
+				"label": "Paused",
+				"value": "PAUSED"
+			},
+			{
+				"label": "Failed",
+				"value": "FAILED"
+			},
+			{
+				"label": "Deleted",
+				"value": "DELETED"
+			},
+			{
+				"label": "Completed",
+				"value": "COMPLETED"
+			},
+			{
+				"label": "Archived",
+				"value": "ARCHIVED"
+			},
+			{
+				"label": "Drafted",
+				"value": "DRAFTED"
+			}
+		]
+	},
+	{
+		"name": "userId",
+		"type": "select",
+		"label": "Client (sub-account)",
+		"options": "rpc://listClients",
+		"mode": "edit",
+		"help": "Agency owners only: read a client sub-account instead of your own data. Leave empty for your own account. The list stays empty for keys that are not an agency owner."
+	},
+	{
+		"name": "limit",
+		"type": "uinteger",
+		"label": "Limit",
+		"required": false,
+		"default": 10,
+		"validate": {
+			"min": 1,
+			"max": 1000
+		},
+		"help": "Maximum number of bundles to return during one execution cycle."
+	}
+]

@@ -1,0 +1,21 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "blacklist_add",
+			"arguments": {
+				"linkedAccountId": "{{parameters.linkedAccountId}}",
+				"type": "{{parameters.type}}",
+				"keyword": "{{parameters.keyword}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

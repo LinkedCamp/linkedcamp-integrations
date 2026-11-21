@@ -1,0 +1,59 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": false,
+		"mode": "edit"
+	},
+	{
+		"name": "keyword",
+		"type": "text",
+		"label": "Keyword",
+		"help": "Searches names and message bodies."
+	},
+	{
+		"name": "platform",
+		"type": "text",
+		"label": "Platform",
+		"help": "For example `linkedin` or `email`."
+	},
+	{
+		"name": "type",
+		"type": "text",
+		"label": "Conversation type",
+		"help": "For example `email`."
+	},
+	{
+		"name": "tags",
+		"type": "text",
+		"label": "Tag IDs",
+		"help": "Comma-separated tag IDs."
+	},
+	{
+		"name": "linkedAccountId",
+		"type": "select",
+		"label": "LinkedIn account",
+		"options": "rpc://listLinkedInAccounts",
+		"mode": "edit"
+	},
+	{
+		"name": "emailAccountId",
+		"type": "text",
+		"label": "Mailbox ID",
+		"help": "Only conversations on this mailbox."
+	},
+	{
+		"name": "limit",
+		"type": "uinteger",
+		"label": "Limit",
+		"required": false,
+		"default": 10,
+		"validate": {
+			"min": 1,
+			"max": 1000
+		},
+		"help": "Maximum number of bundles to return during one execution cycle."
+	}
+]

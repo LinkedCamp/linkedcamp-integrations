@@ -1,0 +1,22 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "linkedin_account_list",
+			"arguments": {}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": {
+			"label": "{{optionLabel(item, 'linkedinAccount')}}",
+			"value": "{{recordId(item)}}"
+		},
+		"limit": 300
+	}
+}

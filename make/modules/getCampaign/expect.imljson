@@ -1,0 +1,16 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": true,
+		"mode": "edit"
+	},
+	{
+		"name": "includeFlow",
+		"type": "boolean",
+		"label": "Include the sequence outline",
+		"default": true
+	}
+]

@@ -1,0 +1,33 @@
+[
+	{
+		"name": "conversationId",
+		"type": "text",
+		"label": "Conversation ID",
+		"required": true,
+		"help": "Conversation ID, for example from **Search conversations**."
+	},
+	{
+		"name": "isArchived",
+		"type": "boolean",
+		"label": "Archived",
+		"help": "Move out of the main list without deleting."
+	},
+	{
+		"name": "seen",
+		"type": "boolean",
+		"label": "Seen",
+		"help": "Mark as read."
+	},
+	{
+		"name": "assistant",
+		"type": "boolean",
+		"label": "AI agent handles this conversation",
+		"help": "Set to **No** to hand the conversation to a human."
+	},
+	{
+		"name": "pauseBotOnManualMessage",
+		"type": "boolean",
+		"label": "Pause the AI agent on a manual message",
+		"help": "Stand the AI agent down as soon as a human sends a message here."
+	}
+]

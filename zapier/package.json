@@ -1,0 +1,22 @@
+{
+  "name": "linkedcamp",
+  "version": "1.0.0",
+  "description": "Linkedcamp is agentic LinkedIn and email outreach for lead generation agencies, with campaigns, replies and AI agents per client.",
+  "scripts": {
+    "test": "jest --testTimeout 10000"
+  },
+  "dependencies": {
+    "zapier-platform-core": "19.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.0",
+    "nock": "^13.5.6"
+  },
+  "private": true,
+  "main": "index.js",
+  "homepage": "https://www.linkedcamp.com",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  }
+}

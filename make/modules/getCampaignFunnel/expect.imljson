@@ -1,0 +1,28 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": true,
+		"mode": "edit"
+	},
+	{
+		"name": "range",
+		"type": "collection",
+		"label": "Date range",
+		"help": "Optional date window. Leave empty for the Linkedcamp default.",
+		"spec": [
+			{
+				"name": "from",
+				"type": "date",
+				"label": "From"
+			},
+			{
+				"name": "to",
+				"type": "date",
+				"label": "To"
+			}
+		]
+	}
+]

@@ -1,0 +1,21 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "message_draft_ai_reply",
+			"arguments": {
+				"conversationId": "{{parameters.conversationId}}",
+				"provider": "{{parameters.provider}}",
+				"prompt": "{{parameters.prompt}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

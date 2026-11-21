@@ -1,0 +1,94 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": true,
+		"mode": "edit"
+	},
+	{
+		"name": "profileLink",
+		"type": "text",
+		"label": "LinkedIn profile URL",
+		"help": "A linkedin.com/in/... URL. Required if **Email** is empty."
+	},
+	{
+		"name": "email",
+		"type": "email",
+		"label": "Email",
+		"help": "Required if **LinkedIn profile URL** is empty."
+	},
+	{
+		"name": "firstName",
+		"type": "text",
+		"label": "First name"
+	},
+	{
+		"name": "lastName",
+		"type": "text",
+		"label": "Last name"
+	},
+	{
+		"name": "fullName",
+		"type": "text",
+		"label": "Full name",
+		"help": "Use instead of first and last name when you only have one string."
+	},
+	{
+		"name": "designation",
+		"type": "text",
+		"label": "Job title"
+	},
+	{
+		"name": "location",
+		"type": "text",
+		"label": "Location",
+		"help": "City, region or country."
+	},
+	{
+		"name": "phone",
+		"type": "text",
+		"label": "Phone"
+	},
+	{
+		"name": "website",
+		"type": "text",
+		"label": "Website"
+	},
+	{
+		"name": "salesNavLink",
+		"type": "text",
+		"label": "Sales Navigator profile URL"
+	},
+	{
+		"name": "recruiterLink",
+		"type": "text",
+		"label": "LinkedIn Recruiter profile URL"
+	},
+	{
+		"name": "personalization",
+		"type": "text",
+		"label": "Personalization",
+		"help": "Free-text hook available in campaign copy as the personalization merge field."
+	},
+	{
+		"name": "customFields",
+		"type": "array",
+		"label": "Custom fields",
+		"help": "Extra merge fields for this lead, usable in campaign copy by field name.",
+		"spec": [
+			{
+				"name": "key",
+				"type": "text",
+				"label": "Field name",
+				"required": true
+			},
+			{
+				"name": "value",
+				"type": "text",
+				"label": "Value"
+			}
+		]
+	}
+]

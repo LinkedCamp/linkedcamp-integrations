@@ -1,0 +1,24 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "reminder_create",
+			"arguments": {
+				"title": "{{parameters.title}}",
+				"remindAt": "{{parameters.remindAt}}",
+				"description": "{{parameters.description}}",
+				"leadId": "{{parameters.leadId}}",
+				"conversationId": "{{parameters.conversationId}}",
+				"linkedAccountId": "{{parameters.linkedAccountId}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

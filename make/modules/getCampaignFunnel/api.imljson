@@ -1,0 +1,20 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "analytics_campaign_funnel",
+			"arguments": {
+				"campaignId": "{{parameters.campaignId}}",
+				"range": "{{parameters.range}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

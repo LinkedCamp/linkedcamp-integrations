@@ -1,0 +1,88 @@
+[
+	{
+		"name": "leadId",
+		"type": "text",
+		"label": "Lead ID",
+		"required": true,
+		"help": "Lead ID, for example from **Search leads**."
+	},
+	{
+		"name": "email",
+		"type": "email",
+		"label": "Email"
+	},
+	{
+		"name": "firstName",
+		"type": "text",
+		"label": "First name"
+	},
+	{
+		"name": "lastName",
+		"type": "text",
+		"label": "Last name"
+	},
+	{
+		"name": "designation",
+		"type": "text",
+		"label": "Job title"
+	},
+	{
+		"name": "phone",
+		"type": "text",
+		"label": "Phone"
+	},
+	{
+		"name": "website",
+		"type": "text",
+		"label": "Website"
+	},
+	{
+		"name": "personalization",
+		"type": "text",
+		"label": "Personalization",
+		"help": "Free-text hook available in campaign copy as the personalization merge field."
+	},
+	{
+		"name": "paused",
+		"type": "boolean",
+		"label": "Paused",
+		"help": "Freeze this lead's sequence without removing it."
+	},
+	{
+		"name": "isExcluded",
+		"type": "boolean",
+		"label": "Excluded",
+		"help": "Remove the lead from sending while keeping the record."
+	},
+	{
+		"name": "isInterested",
+		"type": "boolean",
+		"label": "Interested",
+		"help": "Mark the reply as positive intent."
+	},
+	{
+		"name": "seen",
+		"type": "boolean",
+		"label": "Seen",
+		"help": "Mark as read."
+	},
+	{
+		"name": "customFields",
+		"type": "array",
+		"label": "Custom fields",
+		"help": "Extra merge-field data for this lead.",
+		"spec": [
+			{
+				"name": "key",
+				"type": "text",
+				"label": "Field name",
+				"required": true
+			},
+			{
+				"name": "value",
+				"type": "text",
+				"label": "Value"
+			}
+		]
+	}
+]

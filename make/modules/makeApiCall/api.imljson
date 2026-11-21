@@ -1,0 +1,35 @@
+{
+	"url": "https://api.linkedcamp.com{{parameters.url}}",
+	"method": "{{parameters.method}}",
+	"type": "text",
+	"headers": {
+		"{{...}}": "{{toCollection(parameters.headers, 'key', 'value')}}",
+		"token": "{{connection.apiKey}}"
+	},
+	"qs": {
+		"{{...}}": "{{toCollection(parameters.qs, 'key', 'value')}}"
+	},
+	"body": "{{parameters.body}}",
+	"response": {
+		"type": "json",
+		"valid": "{{body.success === true}}",
+		"error": {
+			"401": {
+				"message": "Reconnect Linkedcamp: the API key was rejected.",
+				"type": "InvalidAccessTokenError"
+			},
+			"message": "{{ifempty(body.message, 'Linkedcamp API error')}}"
+		},
+		"output": {
+			"body": "{{body}}",
+			"headers": "{{headers}}",
+			"statusCode": "{{statusCode}}"
+		}
+	},
+	"log": {
+		"sanitize": [
+			"request.headers.token",
+			"request.headers.x-api-key"
+		]
+	}
+}

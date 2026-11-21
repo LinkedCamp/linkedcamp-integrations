@@ -1,0 +1,46 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "lead_list",
+			"arguments": {
+				"keyword": "{{parameters.keyword}}",
+				"campaignId": "{{parameters.campaignId}}",
+				"status": "{{parameters.status}}",
+				"tags": "{{parameters.tags}}",
+				"range": "{{parameters.range}}",
+				"page": 1,
+				"pageSize": 100
+			}
+		}
+	},
+	"pagination": {
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/call",
+			"params": {
+				"name": "lead_list",
+				"arguments": {
+					"keyword": "{{parameters.keyword}}",
+					"campaignId": "{{parameters.campaignId}}",
+					"status": "{{parameters.status}}",
+					"tags": "{{parameters.tags}}",
+					"range": "{{parameters.range}}",
+					"page": "{{pagination.page}}",
+					"pageSize": 100
+				}
+			}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": "{{item}}",
+		"limit": "{{parameters.limit}}"
+	}
+}

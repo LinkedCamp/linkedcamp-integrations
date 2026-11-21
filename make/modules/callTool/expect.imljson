@@ -1,0 +1,20 @@
+[
+	{
+		"name": "name",
+		"type": "select",
+		"label": "Tool",
+		"options": "rpc://listTools",
+		"required": true,
+		"mode": "edit",
+		"help": "Tools your key cannot use are not listed. Reference: https://docs.linkedcamp.com/mcp/tools"
+	},
+	{
+		"name": "arguments",
+		"type": "text",
+		"label": "Arguments (JSON)",
+		"required": true,
+		"default": "{}",
+		"multiline": true,
+		"help": "A JSON object with the tool arguments, for example `{\"campaignId\": \"...\"}`."
+	}
+]

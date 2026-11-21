@@ -1,0 +1,14 @@
+[
+	{
+		"name": "title",
+		"type": "text",
+		"label": "Title",
+		"required": true
+	},
+	{
+		"name": "sourceUrl",
+		"type": "text",
+		"label": "Source URL",
+		"help": "Optional LinkedIn search, Sales Navigator, Recruiter, group, event or post URL to take prospects from. Leave empty for a campaign you fill with **Bulk add leads to a campaign (advanced)**."
+	}
+]

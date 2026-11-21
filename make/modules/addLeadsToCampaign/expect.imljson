@@ -1,0 +1,91 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": true,
+		"mode": "edit"
+	},
+	{
+		"name": "header",
+		"type": "array",
+		"label": "Column mapping",
+		"required": true,
+		"help": "Map each column name used in **Leads** to a Linkedcamp field. Use **Custom variable** to keep a column as a merge field. Rows with neither a profile URL nor an email are skipped.",
+		"spec": [
+			{
+				"name": "column",
+				"type": "text",
+				"label": "Column name",
+				"required": true
+			},
+			{
+				"name": "field",
+				"type": "select",
+				"label": "Linkedcamp field",
+				"options": [
+					{
+						"label": "profileUrl",
+						"value": "profileUrl"
+					},
+					{
+						"label": "salesNavUrl",
+						"value": "salesNavUrl"
+					},
+					{
+						"label": "recruiterUrl",
+						"value": "recruiterUrl"
+					},
+					{
+						"label": "email",
+						"value": "email"
+					},
+					{
+						"label": "firstName",
+						"value": "firstName"
+					},
+					{
+						"label": "lastName",
+						"value": "lastName"
+					},
+					{
+						"label": "fullName",
+						"value": "fullName"
+					},
+					{
+						"label": "personalization",
+						"value": "personalization"
+					},
+					{
+						"label": "phone",
+						"value": "phone"
+					},
+					{
+						"label": "website",
+						"value": "website"
+					},
+					{
+						"label": "Custom variable",
+						"value": "customVariable"
+					}
+				],
+				"required": true
+			}
+		]
+	},
+	{
+		"name": "leads",
+		"type": "any",
+		"label": "Leads",
+		"required": true,
+		"help": "An array of row objects (for example from an array aggregator), each keyed by the column names in **Column mapping**. Maximum 5,000 rows."
+	},
+	{
+		"name": "removeDuplicates",
+		"type": "boolean",
+		"label": "Remove duplicates",
+		"default": true,
+		"help": "Skip prospects already enrolled in another active or paused campaign on this account."
+	}
+]

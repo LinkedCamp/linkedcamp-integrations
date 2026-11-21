@@ -1,0 +1,32 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "lead_add",
+			"arguments": {
+				"campaignId": "{{parameters.campaignId}}",
+				"profileLink": "{{parameters.profileLink}}",
+				"email": "{{parameters.email}}",
+				"firstName": "{{parameters.firstName}}",
+				"lastName": "{{parameters.lastName}}",
+				"fullName": "{{parameters.fullName}}",
+				"designation": "{{parameters.designation}}",
+				"location": "{{parameters.location}}",
+				"phone": "{{parameters.phone}}",
+				"website": "{{parameters.website}}",
+				"salesNavLink": "{{parameters.salesNavLink}}",
+				"recruiterLink": "{{parameters.recruiterLink}}",
+				"personalization": "{{parameters.personalization}}",
+				"customFields": "{{if(parameters.customFields, toCollection(parameters.customFields, 'key', 'value'), undefined)}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"url": "https://mcp.linkedcamp.com/mcp",
+	"method": "POST",
+	"type": "json",
+	"headers": {
+		"x-api-key": "{{parameters.apiKey}}",
+		"accept": "application/json, text/event-stream",
+		"mcp-protocol-version": "2025-06-18"
+	},
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "whoami",
+			"arguments": {}
+		}
+	},
+	"response": {
+		"type": "json",
+		"valid": "{{statusCode === 200 && !body.error && !!body.result && body.result.isError !== true}}",
+		"error": {
+			"401": {
+				"message": "The Linkedcamp API key was rejected.",
+				"type": "InvalidAccessTokenError"
+			},
+			"403": {
+				"message": "This Linkedcamp key is not allowed to use the MCP server (plan, Integrations permission or access tier)."
+			},
+			"message": "{{if(body.error, body.error.message, if(body.result.isError, 'Linkedcamp rejected the whoami check.', 'Unexpected response from the Linkedcamp MCP server.'))}}"
+		},
+		"metadata": {
+			"type": "text",
+			"value": "{{body.result.structuredContent.email}}"
+		}
+	},
+	"log": {
+		"sanitize": [
+			"request.headers.x-api-key"
+		]
+	}
+}

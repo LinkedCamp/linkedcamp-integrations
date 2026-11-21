@@ -1,0 +1,22 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "campaign_upload_leads",
+			"arguments": {
+				"campaignId": "{{parameters.campaignId}}",
+				"header": "{{toCollection(parameters.header, 'column', 'field')}}",
+				"leads": "{{parameters.leads}}",
+				"removeDuplicates": "{{parameters.removeDuplicates}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

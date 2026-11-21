@@ -1,0 +1,30 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/list",
+		"params": {}
+	},
+	"response": {
+		"iterate": "{{parseMcp(body, 1).result.tools}}",
+		"output": {
+			"label": "{{item.name}}",
+			"value": "{{item.name}}"
+		},
+		"limit": 500
+	},
+	"pagination": {
+		"condition": "{{if(parseMcp(body, 1).result.nextCursor, true, false)}}",
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/list",
+			"params": {
+				"cursor": "{{parseMcp(body, 1).result.nextCursor}}"
+			}
+		}
+	}
+}

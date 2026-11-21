@@ -1,0 +1,25 @@
+{
+  "name": "linkedcamp-make-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Make custom app definition for Linkedcamp, plus local generation, validation, test and upload tooling.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://www.linkedcamp.com",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "test": "node scripts/test-functions.mjs",
+    "validate": "node .agents/skills/make-custom-apps/references/editor-schemas/validate.mjs .",
+    "check": "npm run generate && npm run validate && npm test",
+    "upload:dry-run": "node scripts/upload.mjs"
+  },
+  "dependencies": {
+    "@makehq/sdk": "1.8.1"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0"
+  }
+}

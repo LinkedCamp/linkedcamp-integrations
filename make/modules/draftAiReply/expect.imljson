@@ -1,0 +1,46 @@
+[
+	{
+		"name": "conversationId",
+		"type": "text",
+		"label": "Conversation ID",
+		"required": true,
+		"help": "Conversation ID, for example from **Search conversations**."
+	},
+	{
+		"name": "provider",
+		"type": "select",
+		"label": "AI provider",
+		"options": [
+			{
+				"label": "OpenAI",
+				"value": "OPENAI"
+			},
+			{
+				"label": "Anthropic",
+				"value": "ANTHROPIC"
+			},
+			{
+				"label": "Gemini",
+				"value": "GEMINI"
+			},
+			{
+				"label": "Grok",
+				"value": "GROK"
+			},
+			{
+				"label": "DeepSeek",
+				"value": "DEEPSEEK"
+			}
+		],
+		"required": true,
+		"help": "The provider must be connected in Linkedcamp under Settings → Integrations."
+	},
+	{
+		"name": "prompt",
+		"type": "text",
+		"label": "Prompt",
+		"required": true,
+		"multiline": true,
+		"help": "What the reply should do, for example: propose three times next week for a 20-minute call."
+	}
+]

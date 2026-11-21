@@ -1,0 +1,39 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "campaign_list",
+			"arguments": {
+				"page": 1
+			}
+		}
+	},
+	"pagination": {
+		"body": {
+			"jsonrpc": "2.0",
+			"id": 1,
+			"method": "tools/call",
+			"params": {
+				"name": "campaign_list",
+				"arguments": {
+					"page": "{{pagination.page}}"
+				}
+			}
+		}
+	},
+	"response": {
+		"iterate": "{{mcpList(body, 1)}}",
+		"output": "{{item}}",
+		"limit": "{{parameters.limit}}",
+		"trigger": {
+			"id": "{{recordId(item)}}",
+			"type": "id",
+			"order": "desc"
+		}
+	}
+}

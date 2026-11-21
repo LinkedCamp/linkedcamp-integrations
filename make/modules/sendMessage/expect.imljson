@@ -1,0 +1,43 @@
+[
+	{
+		"name": "conversationId",
+		"type": "text",
+		"label": "Conversation ID",
+		"required": true,
+		"help": "Conversation ID, for example from **Search conversations**."
+	},
+	{
+		"name": "content",
+		"type": "text",
+		"label": "Message",
+		"required": true,
+		"multiline": true,
+		"help": "Delivered exactly as written, immediately, and it cannot be edited or recalled."
+	},
+	{
+		"name": "attachment",
+		"type": "collection",
+		"label": "Attachment",
+		"help": "Optional file that is already hosted at a publicly reachable URL.",
+		"spec": [
+			{
+				"name": "url",
+				"type": "text",
+				"label": "File URL",
+				"required": true
+			},
+			{
+				"name": "name",
+				"type": "text",
+				"label": "File name",
+				"help": "Shown to the recipient, for example case-study.pdf."
+			},
+			{
+				"name": "type",
+				"type": "text",
+				"label": "MIME type",
+				"help": "For example application/pdf."
+			}
+		]
+	}
+]

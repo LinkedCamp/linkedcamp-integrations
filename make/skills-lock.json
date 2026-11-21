@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "skills": {
+    "make-custom-apps": {
+      "source": "integromat/make-apps-skill",
+      "commit": "98e71591a9d1d85bb2ce50c03462ec413f396ea9",
+      "sourceType": "github",
+      "skillPath": "skills/make-custom-apps/SKILL.md",
+      "computedHash": "65806510b98b1ecbd1c35d12cea7bfbfab6d6b5125ddd8797207f3bff2dde20a"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.env*
+!.env.example
+node_modules/
+.zapierapprc
+*.log
+.DS_Store
+zapier/build/
+zapier/*.zip
+make/.secrets/
+spec/captures/raw/
+make/.agents/
+make/.claude/

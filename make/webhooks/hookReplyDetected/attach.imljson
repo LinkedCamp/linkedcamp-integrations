@@ -1,0 +1,68 @@
+[
+	{
+		"url": "https://api.linkedcamp.com/webhooks",
+		"method": "POST",
+		"type": "json",
+		"headers": {
+			"token": "{{connection.apiKey}}"
+		},
+		"body": {
+			"title": "Make: Watch new replies",
+			"callbackUrl": "{{webhook.url}}",
+			"event": "REPLY_DETECTED"
+		},
+		"response": {
+			"type": "json",
+			"valid": "{{body.success === true}}",
+			"error": {
+				"401": {
+					"message": "Reconnect Linkedcamp: the API key was rejected.",
+					"type": "InvalidAccessTokenError"
+				},
+				"403": {
+					"message": "Not allowed for this Linkedcamp key (plan, permission or server-side block)."
+				},
+				"message": "{{ifempty(body.message, 'Linkedcamp API error')}}"
+			},
+			"temp": {
+				"createdId": "{{body.data._id}}"
+			}
+		},
+		"log": {
+			"sanitize": [
+				"request.headers.token",
+				"request.headers.x-api-key"
+			]
+		}
+	},
+	{
+		"url": "https://api.linkedcamp.com/webhooks",
+		"method": "GET",
+		"headers": {
+			"token": "{{connection.apiKey}}"
+		},
+		"response": {
+			"type": "json",
+			"valid": "{{body.success === true && pickWebhookId(temp.createdId, body.data, webhook.url) !== ''}}",
+			"error": {
+				"401": {
+					"message": "Reconnect Linkedcamp: the API key was rejected.",
+					"type": "InvalidAccessTokenError"
+				},
+				"403": {
+					"message": "Not allowed for this Linkedcamp key (plan, permission or server-side block)."
+				},
+				"message": "{{if(body.success === true, 'The Linkedcamp webhook was created, but its id was not found in GET /webhooks. Remove it in Linkedcamp before retrying.', ifempty(body.message, 'Linkedcamp API error'))}}"
+			},
+			"data": {
+				"externalHookId": "{{pickWebhookId(temp.createdId, body.data, webhook.url)}}"
+			}
+		},
+		"log": {
+			"sanitize": [
+				"request.headers.token",
+				"request.headers.x-api-key"
+			]
+		}
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"name": "leadId",
+		"type": "text",
+		"label": "Lead ID",
+		"required": true,
+		"help": "Lead ID, for example from **Search leads**."
+	},
+	{
+		"name": "includeActivities",
+		"type": "boolean",
+		"label": "Include activities",
+		"default": true
+	},
+	{
+		"name": "includeMessages",
+		"type": "boolean",
+		"label": "Include messages",
+		"default": false,
+		"help": "Includes the full message thread, which can be long."
+	}
+]

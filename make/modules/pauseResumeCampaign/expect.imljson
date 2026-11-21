@@ -1,0 +1,27 @@
+[
+	{
+		"name": "campaignId",
+		"type": "select",
+		"label": "Campaign",
+		"options": "rpc://listCampaigns",
+		"required": true,
+		"mode": "edit"
+	},
+	{
+		"name": "status",
+		"type": "select",
+		"label": "Status",
+		"options": [
+			{
+				"label": "Pause",
+				"value": "PAUSED"
+			},
+			{
+				"label": "Resume (active)",
+				"value": "ACTIVE"
+			}
+		],
+		"required": true,
+		"help": "**Resume** works only on a paused campaign and restarts its outreach. This never archives, completes or deletes a campaign."
+	}
+]

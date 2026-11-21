@@ -1,0 +1,25 @@
+{
+	"baseUrl": "https://mcp.linkedcamp.com",
+	"headers": {
+		"x-api-key": "{{connection.apiKey}}",
+		"accept": "application/json, text/event-stream",
+		"mcp-protocol-version": "2025-06-18"
+	},
+	"response": {
+		"type": "text",
+		"valid": "{{mcpError(body, 1, statusCode) === ''}}",
+		"error": {
+			"401": {
+				"message": "{{mcpError(body, 1, statusCode)}}",
+				"type": "InvalidAccessTokenError"
+			},
+			"message": "{{mcpError(body, 1, statusCode)}}"
+		}
+	},
+	"log": {
+		"sanitize": [
+			"request.headers.x-api-key",
+			"request.headers.token"
+		]
+	}
+}

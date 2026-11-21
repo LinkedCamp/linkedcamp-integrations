@@ -1,0 +1,31 @@
+{
+	"url": "/mcp",
+	"method": "POST",
+	"type": "json",
+	"body": {
+		"jsonrpc": "2.0",
+		"id": 1,
+		"method": "tools/call",
+		"params": {
+			"name": "lead_update",
+			"arguments": {
+				"leadId": "{{parameters.leadId}}",
+				"email": "{{parameters.email}}",
+				"firstName": "{{parameters.firstName}}",
+				"lastName": "{{parameters.lastName}}",
+				"designation": "{{parameters.designation}}",
+				"phone": "{{parameters.phone}}",
+				"website": "{{parameters.website}}",
+				"personalization": "{{parameters.personalization}}",
+				"paused": "{{parameters.paused}}",
+				"isExcluded": "{{parameters.isExcluded}}",
+				"isInterested": "{{parameters.isInterested}}",
+				"seen": "{{parameters.seen}}",
+				"customFields": "{{if(parameters.customFields, toCollection(parameters.customFields, 'key', 'value'), undefined)}}"
+			}
+		}
+	},
+	"response": {
+		"output": "{{mcpResult(body, 1)}}"
+	}
+}

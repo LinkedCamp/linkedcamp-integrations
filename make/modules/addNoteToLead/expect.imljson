@@ -1,0 +1,17 @@
+[
+	{
+		"name": "leadId",
+		"type": "text",
+		"label": "Lead ID",
+		"required": true,
+		"help": "Lead ID, for example from **Search leads**."
+	},
+	{
+		"name": "content",
+		"type": "text",
+		"label": "Note",
+		"required": true,
+		"multiline": true,
+		"help": "Internal only; never sent to the prospect."
+	}
+]
